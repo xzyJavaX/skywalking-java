@@ -54,6 +54,7 @@ public class InstMethodsInterV2 {
 
         MethodInvocationContext context = new MethodInvocationContext();
         try {
+            // before方法
             interceptor.beforeMethod(targetObject, method, allArguments, method.getParameterTypes(), context);
         } catch (Throwable t) {
             LOGGER.error(t, "class[{}] before method[{}] intercept failure", obj.getClass(), method.getName());
@@ -75,6 +76,7 @@ public class InstMethodsInterV2 {
             throw t;
         } finally {
             try {
+                // after方法
                 ret = interceptor.afterMethod(targetObject, method, allArguments, method.getParameterTypes(), ret, context);
             } catch (Throwable t) {
                 LOGGER.error(t, "class[{}] after method[{}] intercept failure", obj.getClass(), method.getName());

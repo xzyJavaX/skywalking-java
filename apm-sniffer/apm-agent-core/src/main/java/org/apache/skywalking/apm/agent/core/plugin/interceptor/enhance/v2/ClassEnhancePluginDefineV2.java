@@ -182,6 +182,7 @@ public abstract class ClassEnhancePluginDefineV2 extends AbstractClassEnhancePlu
                                                          .intercept(MethodDelegation.withDefaultConfiguration()
                                                                                     .to(BootstrapInstrumentBoost.forInternalDelegateClass(interceptor)));
                     } else {
+                        // 一般会走到这里
                         newClassBuilder = newClassBuilder.method(junction)
                                                          .intercept(MethodDelegation.withDefaultConfiguration()
                                                                                     .to(new InstMethodsInterV2(interceptor, classLoader)));

@@ -111,8 +111,9 @@ public abstract class AbstractClassEnhancePluginDefine {
      */
     protected DynamicType.Builder<?> enhance(TypeDescription typeDescription, DynamicType.Builder<?> newClassBuilder,
                                              ClassLoader classLoader, EnhanceContext context) throws PluginException {
+        // 增强类
         newClassBuilder = this.enhanceClass(typeDescription, newClassBuilder, classLoader);
-
+        // 增强实例
         newClassBuilder = this.enhanceInstance(typeDescription, newClassBuilder, classLoader, context);
 
         return newClassBuilder;
